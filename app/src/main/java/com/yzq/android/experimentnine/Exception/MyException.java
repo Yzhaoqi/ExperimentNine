@@ -6,8 +6,8 @@ package com.yzq.android.experimentnine.Exception;
 
 public class MyException extends Exception {
     String errMessage;
-    public MyException(String errMessager) {
-        this.errMessage = errMessager;
+    public MyException(String errMessage) {
+        this.errMessage = errMessage;
     }
 
     public String getErrMessage() {
