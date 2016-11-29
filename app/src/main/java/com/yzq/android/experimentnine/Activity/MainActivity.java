@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     private void setExtraInfo() throws IOException, XmlPullParserException {
         int[] order = new int[]{0, 1, 2, 3, 4};
         int i = 0;
-        while (i < order.length) {
+        while (i < order.length && !"yesterday".equals(parser.getName())) {
             switch (eventType) {
                 case XmlPullParser.START_TAG:
                     if (extra_info_tag[order[i]].equals(parser.getName())) {
@@ -226,6 +226,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             eventType = parser.next();
+        }
+        if (i == 0) {
+            for (int j = 0; j < 5; j++)
+                extraInfo[j] = "";
         }
     }
 
